@@ -215,7 +215,7 @@ function newGame() {
     <div onclick="ClickElement(this, 2, 2)" class="boardElement"></div>
     `;
 
-    document.getElementById("main").style = "width: 30vw; height: 30vw;"
+    document.getElementById("main").style = "";
 
     document.getElementById("player1").style = 'background-color: ' + player1_color + ';';
     document.getElementById("player2").style = 'background-color: transparent;';
