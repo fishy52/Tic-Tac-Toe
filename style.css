@@ -20,6 +20,7 @@ html {
 h1 {
     text-align: center;
     font-size: 500%;
+    margin-bottom: 2%;
 }
 
 input {
@@ -66,8 +67,8 @@ main {
     width: 20vw;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
 
 .play {
@@ -87,6 +88,13 @@ main {
     width: 100%;
     font-size: 150%;
     background-color: transparent;
+}
+
+.playerScore {
+    margin-top: 0%;
+    text-align: center;
+    width: 100%;
+    font-size: 150%;
 }
 
 .button {

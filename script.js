@@ -8,6 +8,8 @@ let player1_name = "Player1";
 let player2_name = "Player2";
 let player1_color;
 let player2_color;
+let player1_score = 0;
+let player2_score = 0;
 
 function StartGame() {
     player1_name = document.getElementById("player1Name").value;
@@ -19,6 +21,11 @@ function StartGame() {
     document.getElementById("playerNames").innerHTML = `
     <p id="player1" class="player">` + player1_name + `</p>
     <p id="player2" class="player">` + player2_name + `</p>
+    `;
+
+    document.getElementById("playerScores").innerHTML = `
+    <p id="player1Score" class="playerScore">` + player1_score + `</p>
+    <p id="player2Score" class="playerScore">` + player2_score + `</p>
     `;
 
     document.getElementById("main").innerHTML = `
@@ -59,14 +66,17 @@ function ClickElement(elem, x, y) {
 }
 
 function checkWinner() {
+    let hasWinner = false;
     //check y
     for (let i = 0; i < 3; i++) {
         let count = 0;
         for (let j = 0; j < 3; j++) {
             count += board[i][j];
             if (count == 3) {
+                hasWinner = true;
                 P1Win();
             } else if (count == 30) {
+                hasWinner = true;
                 P2Win();
             }
         }
@@ -77,36 +87,44 @@ function checkWinner() {
         for (let j = 0; j < 3; j++) {
             count += board[j][i];
             if (count == 3) {
+                hasWinner = true;
                 P1Win();
             } else if (count == 30) {
+                hasWinner = true;
                 P2Win();
             }
         }
     }
     //diagonal
     if (board[0][0] + board[1][1] + board[2][2] == 3) {
+        hasWinner = true;
         P1Win();
     } else if (board[0][0] + board[1][1] + board[2][2] == 30) {
+        hasWinner = true;
         P2Win();
     }
     if (board[0][2] + board[1][1] + board[2][0] == 3) {
+        hasWinner = true;
         P1Win();
     } else if (board[0][2] + board[1][1] + board[2][0] == 30) {
+        hasWinner = true;
         P2Win();
     }
 
     //check for draw
-    let hasEmpty = false;
-    for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-            if (board[i][j] == 0) {
-                hasEmpty = true;
+    if (hasWinner == false) {
+        let hasEmpty = false;
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (board[i][j] == 0) {
+                    hasEmpty = true;
+                }
             }
         }
-    }
 
-    if (hasEmpty == false) {
-        Draw();
+        if (hasEmpty == false) {
+            Draw();
+        }
     }
 }
 
@@ -115,9 +133,14 @@ function ChangePlayer() {
 }
 
 function P1Win() {
-    document.getElementById("main").innerHTML ="";
+    player1_score++;
+    document.getElementById("main").innerHTML = "";
     document.getElementById("main").style = "width: 0px; height: 0px;"
-    document.getElementById("playerNames").innerHTML = "";
+    //document.getElementById("playerNames").innerHTML = "";
+    document.getElementById("player1").style = 'background-color: ' + player1_color + ';';
+    document.getElementById("player2").style = 'background-color: transparent;';
+    document.getElementById("player1Score").innerHTML = player1_score;
+    document.getElementById("player2Score").innerHTML = player2_score;
     document.getElementById("winText").innerHTML = '<h1>' + player1_name + ' has won!</h1>';
     document.getElementById("winText").innerHTML += `
         <div class="play">
@@ -127,9 +150,14 @@ function P1Win() {
 }
 
 function P2Win() {
-    document.getElementById("main").innerHTML ="";
+    player2_score++;
+    document.getElementById("main").innerHTML = "";
     document.getElementById("main").style = "width: 0px; height: 0px;"
-    document.getElementById("playerNames").innerHTML = "";
+    //document.getElementById("playerNames").innerHTML = "";
+    document.getElementById("player1").style = 'background-color: transparent;';
+    document.getElementById("player2").style = 'background-color: ' + player2_color + ';';
+    document.getElementById("player1Score").innerHTML = player1_score;
+    document.getElementById("player2Score").innerHTML = player2_score;
     document.getElementById("winText").innerHTML = '<h1>' + player2_name + ' has won!</h1>';
     document.getElementById("winText").innerHTML += `
         <div class="play">
@@ -139,9 +167,13 @@ function P2Win() {
 }
 
 function Draw() {
-    document.getElementById("main").innerHTML ="";
+    document.getElementById("main").innerHTML = "";
     document.getElementById("main").style = "width: 0px; height: 0px;"
-    document.getElementById("playerNames").innerHTML = "";
+    //document.getElementById("playerNames").innerHTML = "";
+    document.getElementById("player1").style = 'background-color: transparent;';
+    document.getElementById("player2").style = 'background-color: transparent;';
+    document.getElementById("player1Score").innerHTML = player1_score;
+    document.getElementById("player2Score").innerHTML = player2_score;
     document.getElementById("winText").innerHTML = '<h1>Draw!</h1>';
     document.getElementById("winText").innerHTML += `
         <div class="play">
@@ -164,6 +196,11 @@ function newGame() {
     document.getElementById("playerNames").innerHTML = `
     <p id="player1" class="player">` + player1_name + `</p>
     <p id="player2" class="player">` + player2_name + `</p>
+    `;
+
+    document.getElementById("playerScores").innerHTML = `
+    <p id="player1Score" class="playerScore">` + player1_score + `</p>
+    <p id="player2Score" class="playerScore">` + player2_score + `</p>
     `;
 
     document.getElementById("main").innerHTML = `
