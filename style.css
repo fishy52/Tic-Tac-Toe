@@ -13,12 +13,6 @@
     }
 }
 
-html {
-    color-scheme: dark;
-    font-family: main;
-    overflow: hidden;
-}
-
 h1 {
     text-align: center;
     font-size: 500%;
@@ -54,6 +48,12 @@ input {
 }
 
 @media (min-width: 600px) {
+    html {
+        color-scheme: dark;
+        font-family: main;
+        overflow: hidden;
+    }
+
     main {
         display: grid;
         grid-template-columns: 33% 33% 33%;
@@ -83,6 +83,11 @@ input {
 }
 
 @media (max-width: 600px) {
+    html {
+        color-scheme: dark;
+        font-family: main;
+    }
+
     main {
         display: grid;
         grid-template-columns: 33% 33% 33%;
