@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h1>Tic Tac Toe</h1>
+
+    <div id="pregame">
+        <div class="flex">
+            <input type="text" value="Player 1" id="player1Name">
+            <input type="text" value="Player 2" id="player2Name">
+        </div>
+        <div class="flex">
+            <input type="color" id="player1Color" value="#00ffff">
+            <input type="color" id="player2Color" value="#ff0000">
+        </div>
+        <div class="play">
+            <h1 onclick="StartGame()" class="button">Play</h1>
+        </div>
+    </div>
+
+    <div id="playerNames" class="flex"></div>
+
+    <main id="main"></main>
+    <div id="winText">
+
+    </div>
+</body>
+
+</html>
