@@ -144,7 +144,7 @@ function P1Win() {
     document.getElementById("winText").innerHTML = '<h1>' + player1_name + ' has won!</h1>';
     document.getElementById("winText").innerHTML += `
         <div class="play">
-        <div class="center"><h2 onclick="newGame()" class="expandButton">Play Again</h1></div>
+        <div class="center"><h1 id="winButton" onclick="newGame()" class="expandButton">Play Again</h1></div>
         </div>
     `;
 }
@@ -161,7 +161,7 @@ function P2Win() {
     document.getElementById("winText").innerHTML = '<h1>' + player2_name + ' has won!</h1>';
     document.getElementById("winText").innerHTML += `
         <div class="play">
-        <div class="center"><h1 onclick="newGame()" class="expandButton">Play Again</h1></div>
+        <div class="center"><h1 id="winButton" onclick="newGame()" class="expandButton">Play Again</h1></div>
         </div>
     `;
 }
@@ -177,7 +177,7 @@ function Draw() {
     document.getElementById("winText").innerHTML = '<h1>Draw!</h1>';
     document.getElementById("winText").innerHTML += `
         <div class="play">
-        <div class="center"><h1 onclick="newGame()" class="expandButton">Play Again</h1></div>
+        <div class="center"><h1 id="winButton" onclick="newGame()" class="expandButton">Play Again</h1></div>
         </div>
     `;
 }

@@ -20,6 +20,7 @@
 
 .title {
     font-family: futureFont;
+    letter-spacing: 4px;
 }
 
 h1 {
@@ -30,7 +31,6 @@ h1 {
 
 input {
     text-align: center;
-
     margin-left: auto;
     margin-right: auto;
 }
