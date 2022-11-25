@@ -1,0 +1,1 @@
+Diese Website funktioniert auch auf mobile.

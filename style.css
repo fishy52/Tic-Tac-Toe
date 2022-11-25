@@ -3,6 +3,11 @@
     src: url(NexaText-Trial-Black.ttf);
 }
 
+@font-face {
+    font-family: futureFont;
+    src: url(ethnocentric.otf);
+}
+
 @keyframes spawnElement {
     0% {
         transform: scale(0%);
@@ -11,6 +16,10 @@
     100% {
         transform: scale(100%);
     }
+}
+
+.title {
+    font-family: futureFont;
 }
 
 h1 {
@@ -26,9 +35,26 @@ input {
     margin-right: auto;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nameInput {
+    width: 20vw;
+    height: 4vh;
+}
+
+.colorInput {
+    width: 20vw;
+    height: 5vh;
+}
+
 .boardElement {
     position: relative;
     animation: spawnElement 0.5s ease-in-out;
+    background-color: transparent;
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -40,11 +66,11 @@ input {
     border-width: 2.5%;
     border-collapse: collapse;
 
-    transition: border-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
 }
 
 .boardElement:hover {
-    border-color: greenyellow;
+    background-color: rgba(255, 255, 255, 0.255);
 }
 
 @media (min-width: 600px) {
@@ -65,20 +91,17 @@ input {
         margin-right: auto;
     }
 
+    .nameInput {
+        font-size: 200%;
+    }
+
     .flex {
         display: flex;
-        width: 20vw;
+        width: 42vw;
         margin-left: auto;
         margin-right: auto;
         margin-top: 0%;
         margin-bottom: 0%;
-    }
-
-    .play {
-        margin-left: 40vw;
-        margin-right: 40vw;
-        margin-top: 2%;
-        margin-bottom: 2%;
     }
 }
 
@@ -99,6 +122,10 @@ input {
         margin-right: auto;
     }
 
+    .nameInput {
+        font-size: 100%;
+    }
+
     #winText {
         position: relative;
         transform: scale(70%) translateY(-25vh);
@@ -111,13 +138,6 @@ input {
         margin-right: auto;
         margin-top: 0%;
         margin-bottom: 0%;
-    }
-
-    .play {
-        margin-left: 10vw;
-        margin-right: 10vw;
-        margin-top: 2%;
-        margin-bottom: 2%;
     }
 }
 
@@ -141,15 +161,24 @@ input {
     font-size: 150%;
 }
 
-.button {
-    text-align: center;
-    border-style: solid;
-    border-width: 5%;
-    border-color: white;
-    border-radius: 5%;
-    transition: background-color 0.3s ease-out;
+.expandButton {
+    margin-top: 3%;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 400%;
+    cursor: pointer;
+    position: relative;
 }
 
-.button:hover {
-    background-color: rgb(255, 0, 0);
+.expandButton:after {
+    display: block;
+    content: '';
+    border-bottom: solid 3px #ffffff;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+.expandButton:hover:after {
+    transform: scaleX(1);
 }
