@@ -189,7 +189,6 @@ function newGame() {
         [0, 0, 0],
         [0, 0, 0]
     ];
-    player1_turn = true;
 
     document.getElementById("winText").innerHTML = "";
 
@@ -217,6 +216,12 @@ function newGame() {
 
     document.getElementById("main").style = "";
 
-    document.getElementById("player1").style = 'background-color: ' + player1_color + ';';
-    document.getElementById("player2").style = 'background-color: transparent;';
+    if (player1_turn) {
+        document.getElementById("player1").style = 'background-color: ' + player1_color + ';';
+        document.getElementById("player2").style = 'background-color: transparent;';
+    } else {
+        document.getElementById("player1").style = 'background-color: transparent;';
+        document.getElementById("player2").style = 'background-color: ' + player2_color + ';';
+    }
+
 }

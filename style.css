@@ -155,6 +155,7 @@ input {
 }
 
 .playerScore {
+    animation: spawnElement 0.5s ease-in-out;
     margin-top: 0%;
     text-align: center;
     width: 100%;
